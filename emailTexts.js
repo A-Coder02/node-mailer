@@ -125,7 +125,7 @@ const welcomeEmailTemplate = (info) => `
   <div class="container">
     <h2>Welcome to Xerox Cloud!</h2>
     <p>Dear ${info.name},</p>
-    <p>We are thrilled to have you as a new member of the Xerox Cloud community!</p>
+    <p>We are thrilled to have you as a new member of the Xerox Cloud!</p>
     <p>
       Your account has been successfully created, and you can now explore our app and enjoy all the great features we offer.
       To get started, simply log in using the credentials you provided during registration.

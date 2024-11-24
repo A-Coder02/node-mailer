@@ -6,12 +6,14 @@ const {
   sendEmailOtpOptions,
   welcomeEmailTemplateOptions,
 } = require("./mailToptions");
-
+const EMAIL = process.env.EMAIL
+const PASS = process.env.PASS
+const SERVICE_EMAIL = process.env.SERVICE_EMAIL
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.PASS,
+    user: EMAIL,
+    pass: PASS,
   },
 });
 
@@ -70,9 +72,9 @@ const sendEmailForAudit = async (req, res) => {
 
 // NEW APIS
 const sendGreet = async (req, res) => {
-  const { name = '<NAME>', to = '<TO-EMAIL>', service_email = "<TO-EMAIL>" } = req.body
+  const { name = '<NAME>', to = '<TO-EMAIL>'} = req.body
   transporter.sendMail(
-    welcomeEmailTemplateOptions({name, to, service_email}),
+    welcomeEmailTemplateOptions({name, to, service_email : SERVICE_EMAIL}),
     function (error, info) {
       if (error) {
         console.log(error);
