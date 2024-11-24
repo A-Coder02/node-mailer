@@ -14,6 +14,6 @@ app.use(express.json());
 app.post("/greet-email", sendGreet);
 // body: {name, email, }
 app.post("/send-otp-email", sendEmailOtp);
-// body: {name, email, mobile_number}
+// body: {name, email, mobile_number, otp}
 
 app.listen(5000, console.log(5000, "PORT"));

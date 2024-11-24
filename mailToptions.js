@@ -3,6 +3,7 @@ const {
   ownerEmailText,
   auditEmailText,
   welcomeEmailTemplate,
+  otpEmailTemplate,
 } = require("./emailTexts");
 
 const EMAIL = process.env.EMAIL
@@ -39,11 +40,12 @@ var sendEmailOtpOptions = ({
   name,
   email,
   mobile_number,
-  otp }) => ({
+  otp,
+service_email }) => ({
     from: EMAIL,
-    to: to,
+    to: email,
     subject: "🔐 Your OTP for Xerox Cloud Account Verification",
-    text: clientEmailText({ name, mobile_number, otp, email }),
+    html: otpEmailTemplate({ name, mobile_number, otp, email , service_email}),
   });
 
 module.exports = {

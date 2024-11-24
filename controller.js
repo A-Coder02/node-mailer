@@ -97,12 +97,25 @@ const sendEmailOtp = async (req, res) => {
   transporter.sendMail(
     sendEmailOtpOptions({
       name,
-      to: email,
+      email,
       mobile_number,
       otp,
       service_email : SERVICE_EMAIL
-    })
-  )
+    }),
+    function (error, info) {
+      if (error) {
+        console.log(error);
+        res
+          .status(500)
+          .json({ data: null, success: false, msg: "Email Not Sent" });
+      } else {
+        console.log("Email sent to Owner: " + info.response);
+      }
+    }
+  );
+  res
+    .status(200)
+    .json({ data: req.body || {}, success: true, msg: "Email Sent" });
 }
 
 
