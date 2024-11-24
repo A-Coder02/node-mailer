@@ -8,25 +8,6 @@ const {
 
 const EMAIL = process.env.EMAIL
 
-var clientMailOptions = ({ email, firstName, lastName }) => ({
-  from: "arbaj897ansari@gmail.com",
-  to: email,
-  subject: "Confirmation of Receipt - Clickster Inquiry",
-  text: clientEmailText({ firstName, lastName }),
-});
-
-var ownerMailOptions = (reqBody) => ({
-  from: "arbaj897ansari@gmail.com",
-  to: "arbaj897ansari@gmail.com",
-  subject: "New Client Inquiry",
-  text: ownerEmailText(reqBody),
-});
-var ownerForAuditMailOptions = (reqBody) => ({
-  from: "arbaj897ansari@gmail.com",
-  to: "arbaj897ansari@gmail.com",
-  subject: "New Client For Audit",
-  html: auditEmailText(reqBody),
-});
 
 // New 
 var welcomeEmailTemplateOptions = (reqBody) => ({
@@ -49,9 +30,6 @@ service_email }) => ({
   });
 
 module.exports = {
-  clientMailOptions,
-  ownerMailOptions,
-  ownerForAuditMailOptions,
   sendEmailOtpOptions,
   welcomeEmailTemplateOptions
 };
