@@ -72,9 +72,9 @@ const sendEmailForAudit = async (req, res) => {
 
 // NEW APIS
 const sendGreet = async (req, res) => {
-  const { name = '<NAME>', to = '<TO-EMAIL>'} = req.body
+  const { name = '<NAME>', email = '<TO-EMAIL>'} = req.body
   transporter.sendMail(
-    welcomeEmailTemplateOptions({name, to, service_email : SERVICE_EMAIL}),
+    welcomeEmailTemplateOptions({name, email, service_email : SERVICE_EMAIL}),
     function (error, info) {
       if (error) {
         console.log(error);
@@ -97,9 +97,10 @@ const sendEmailOtp = async (req, res) => {
   transporter.sendMail(
     sendEmailOtpOptions({
       name,
-      email,
+      to: email,
       mobile_number,
-      otp
+      otp,
+      service_email : SERVICE_EMAIL
     })
   )
 }

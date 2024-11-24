@@ -30,18 +30,19 @@ var ownerForAuditMailOptions = (reqBody) => ({
 // New 
 var welcomeEmailTemplateOptions = (reqBody) => ({
   from: EMAIL,
-  to: reqBody.to, //change later
+  to: reqBody.email, //change later
   subject: "Welcome to the Xerox Cloud 🖨! Your Account Has Been Created",
   html: welcomeEmailTemplate(reqBody),
 });
 
-var sendEmailOtpOptions = ({ name,
+var sendEmailOtpOptions = ({
+  name,
   email,
   mobile_number,
   otp }) => ({
     from: EMAIL,
-    to: email,
-    subject: "Confirmation of Receipt - Clickster Inquiry",
+    to: to,
+    subject: "🔐 Your OTP for Xerox Cloud Account Verification",
     text: clientEmailText({ name, mobile_number, otp, email }),
   });
 
