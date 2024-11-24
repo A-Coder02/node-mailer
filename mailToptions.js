@@ -1,7 +1,4 @@
 const {
-  clientEmailText,
-  ownerEmailText,
-  auditEmailText,
   welcomeEmailTemplate,
   otpEmailTemplate,
 } = require("./emailTexts");
