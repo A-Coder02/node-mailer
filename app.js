@@ -10,8 +10,9 @@ app.use(
   })
 );
 app.use(express.json());
-app.post("/send-otp", sendEmailOtp);
 app.post("/email-audit", sendEmailForAudit);
-app.post("/greet", sendGreet);
+
+app.post("/greet-email", sendGreet);
+// body: {name, to, service_email }
 
 app.listen(5000, console.log(5000, "PORT"));

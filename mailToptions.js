@@ -27,9 +27,10 @@ var ownerForAuditMailOptions = (reqBody) => ({
   html: auditEmailText(reqBody),
 });
 
+// New 
 var welcomeEmailTemplateOptions = (reqBody) => ({
   from: EMAIL,
-  to: "arbaj897ansari@gmail.com", //change later
+  to: reqBody.to, //change later
   subject: "Welcome to the Xerox Cloud 🖨! Your Account Has Been Created",
   html: welcomeEmailTemplate(reqBody),
 });

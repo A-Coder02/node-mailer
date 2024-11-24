@@ -131,13 +131,13 @@ const welcomeEmailTemplate = (info) => `
       To get started, simply log in using the credentials you provided during registration.
     </p>
     <p>
-      If you have any questions or need assistance, feel free to contact us at <a href="mailto:${info.email}">${info.email}</a>.
+      If you have any questions or need assistance, feel free to contact us at <a href="mailto:${info.service_email}">${info.service_email}</a>.
     </p>
     <p>Thank you for choosing Xerox Cloud. We look forward to serving you!</p>
     <div class="signature">
       <p>Best regards,</p>
       <p><strong>Xerox Cloud Team</strong><br>
-      <a href="mailto:${info.email}">${info.email}</a></p>
+      <a href="mailto:${info.service_email}">${info.service_email}</a></p>
     </div>
   </div>
 </body>
